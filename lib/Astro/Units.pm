@@ -13,7 +13,7 @@ Math::BigFloat->config({
     accuracy => undef,
 });
 
-our $VERSION = '1.00';
+our $VERSION = '1.10';
 use constant {
     ONE_LIGHT_YEAR   => Math::BigFloat->new('9_460_730_472_580.8'),
     ONE_LIGHT_WEEK   => Math::BigFloat->new('181_314_478_598.399_9'),
@@ -43,7 +43,7 @@ sub new {
 
 sub _clean  {
     my $raw_string = shift;
-    $raw_string =~ s/(,|\s|_|[a-zA-Z])//g;
+    $raw_string =~ s/([a-zA-Z\s_,\s])//g;
     return $raw_string;
 }
 
@@ -154,7 +154,7 @@ __END__
 
 =head1 NAME
 
-Astro::Unit - Astronomical unit conversion with high precision and large number support
+Astro::Units - Astronomical unit conversion with high precision and large number support
 
 =head1 VERSION
 
@@ -162,26 +162,26 @@ version 1.00
 
 =head1 SYNOPSIS
 
-Astro::Unit can capable of converting the astrological units into mile or kilometers 
+Astro::Units can capable of converting the astrological units into mile or kilometers 
 with the added support of conversion from astrological to light year and vice-versa
    
    # Raw number input will be truncated by Perl hence need to use
    # either bignum in the script or single quotes to pass large number to methods
 
-    use Astro::Unit;
+    use Astro::Units;
     use bignum;
     my $astro =  new Astouniuts();
     print $astro->get_astronomical_units(19999); #use bigint
     
               OR
     
-    use Astro::Unit;
+    use Astro::Units;
     my $astro =  new Astouniuts();
     print $astro->get_astronomical_units('19999'); #single quote
     
 =head1 DESCRIPTION
 
-C<Astro::Unit>, 
+C<Astro::Units>, 
 
 Features include:
 
@@ -197,10 +197,11 @@ Features include:
 
 =back
 
-Astro::Unit is useful for performing the astrological conversion and calculation till n'th digit with precision.
+Astro::Units is useful for performing the astrological conversion and calculation till n'th digit with precision.
 Without worrying about result getting truncated.
 
 =head1 IMPORTANT LINKS
+
 =head3 ACKNOWLEDGEMENTS
 
 Conversion Values were taken from 
@@ -217,7 +218,7 @@ L<https://perldoc.perl.org/Math/BigFloat.html>
 
 =over 4
 
-=item * L<https://github.com/spajai/Asto-Units>
+=item * L<https://github.com/spajai/Astro-Units>
 
 Report issue on above link
 
@@ -229,18 +230,18 @@ Frequently asked questions. Make sure you read here FIRST.
 
 =head2 new()
 
-Creates and returns a new Astro::Unit object.
+Creates and returns a new Astro::Units object.
 
-    my $astro = Astro::Unit->new()
+    my $astro = Astro::Units->new()
 
 
-C<Astro::Unit supports unit option>
+C<Astro::Units supports unit option>
 
 =head2 new() set metric system
 
-    my $astro = Astro::Unit->new(unit => 'mile')
+    my $astro = Astro::Units->new(unit => 'mile')
                         or 
-    my $astro = Astro::Unit->new(unit => 'kilometer')
+    my $astro = Astro::Units->new(unit => 'kilometer')
 
 =head3 supported unit input
     
@@ -435,6 +436,6 @@ Sushrut Pajai <sushrutpajai at gmail.com>
 This software is copyright (c) 2018 by Sushrut Pajai 
 
 This is free software; you can redistribute it and/or modify it under
-the same terms as the Perl 5 programming language system itself.
+the same terms as the Perl 5 programming language itself.
 
 =cut

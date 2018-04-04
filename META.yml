@@ -1,14 +1,14 @@
 ---
-abstract: 'Astro-Units to convert stronomical units to miles or km and vice-versa'
+abstract: 'Astronomical unit conversion with high precision and large number support'
 author:
-  - spajai
+  - 'Sushrut Pajai'
 build_requires:
-  ExtUtils::MakeMaker: '0'
+  Test::More: '0'
 configure_requires:
   ExtUtils::MakeMaker: '0'
-dynamic_config: 0
+dynamic_config: 1
 generated_by: 'ExtUtils::MakeMaker version 7.0401, CPAN::Meta::Converter version 2.150001'
-license: unknown
+license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: '1.4'
@@ -20,6 +20,6 @@ no_index:
 requires:
   Carp: '0'
   Math::BigFloat: '0'
-  Test::More: '0'
   bignum: '0'
-version: '1.00'
+  perl: '5.006'
+version: '1.10'
